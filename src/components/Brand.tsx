@@ -47,7 +47,7 @@ export function BrandLogo({ id, size = 16 }: { id: string; size?: number }) {
 }
 
 // ---------- Cursor ----------
-function CustomCursor() {
+export function CustomCursor() {
   const ref = useRef<HTMLDivElement>(null);
   const [hover, setHover] = useState(false);
   useEffect(() => {
