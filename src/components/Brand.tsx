@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { LOGOS, type Logo } from "./logos";
+import { LOGOS, type Logo } from "@/lib/logos";
 
 // ---------- Logo component ----------
 export function BrandLogo({ id, size = 16 }: { id: string; size?: number }) {
