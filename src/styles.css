@@ -76,3 +76,8 @@ html[data-theme="dark"] {
   to { opacity: 1; }
 }
 .modal-fade { animation: modalFade 0.25s ease-out forwards; }
+
+@media (max-width: 560px) {
+  .tl-row { grid-template-columns: 1fr !important; gap: 8px !important; }
+  .post-row { grid-template-columns: 1fr !important; gap: 4px !important; }
+}
