@@ -17,13 +17,13 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-type View = "home" | "work" | "projects" | "writing" | "about";
+type View = "home" | "work" | "projects" | "blog" | "about";
 
 const NAV: { id: View; label: string }[] = [
   { id: "home", label: "Home" },
   { id: "work", label: "Work" },
   { id: "projects", label: "Projects" },
-  { id: "writing", label: "Writing" },
+  { id: "blog", label: "Blog" },
   { id: "about", label: "About" },
 ];
 
@@ -158,12 +158,12 @@ function HomeView({ go }: { go: (v: View, slug?: string) => void }) {
             </button>
           </div>,
           <div key="posts" style={{ marginTop: 56 }}>
-            <SectionLabel>Recent writing</SectionLabel>
+            <SectionLabel>Recent blog posts</SectionLabel>
             <ul style={{ listStyle: "none", padding: 0, marginTop: 14 }}>
               {recent.map((p) => (
                 <li key={p.slug} style={{ padding: "10px 0" }}>
                   <button
-                    onClick={() => go("writing", p.slug)}
+                    onClick={() => go("blog", p.slug)}
                     data-hover
                     style={{
                       background: "none",
@@ -445,7 +445,7 @@ function ProjectsView() {
 }
 
 // ---------- Writing ----------
-function WritingView({ openSlug, onOpen, onClose }: {
+function BlogView({ openSlug, onOpen, onClose }: {
   openSlug: string | null;
   onOpen: (slug: string) => void;
   onClose: () => void;
@@ -454,35 +454,47 @@ function WritingView({ openSlug, onOpen, onClose }: {
 
   return (
     <div style={{ maxWidth: 760 }}>
-      <PageHeader eyebrow="04" title="Writing" />
+      <PageHeader eyebrow="04" title="Blog" />
+      <p style={{ fontSize: 18, color: "var(--color-muted-foreground)", marginTop: -24, marginBottom: 40 }}>
+        Technical field reports, thoughts on systems architecture, and engineering reflections.
+      </p>
       <ul style={{ listStyle: "none", padding: 0, margin: 0 }} className="fade-up">
-        {POSTS.map((p) => (
-          <li
-            key={p.slug}
-            style={{ borderTop: "1px solid var(--color-border)", padding: "22px 0" }}
-          >
-            <button
-              onClick={() => onOpen(p.slug)}
-              data-hover
-              style={{
-                background: "none", border: "none", padding: 0, textAlign: "left",
-                color: "inherit", font: "inherit", width: "100%",
-                display: "grid", gridTemplateColumns: "100px 1fr", gap: 24, alignItems: "baseline",
-              }}
-              className="post-row"
+        {POSTS.map((p) => {
+          const words = p.body.replace(/<[^>]*>/g, '').split(/\s+/).length;
+          const readTime = Math.ceil(words / 200);
+          return (
+            <li
+              key={p.slug}
+              style={{ borderTop: "1px solid var(--color-border)", padding: "24px 0" }}
             >
-              <span className="mono" style={{ fontSize: 11, color: "var(--color-muted-foreground)", letterSpacing: "0.04em" }}>
-                {p.dateLabel.toUpperCase()}
-              </span>
-              <span>
-                <div style={{ fontSize: 21, letterSpacing: "-0.01em" }}>{p.title}</div>
-                <div style={{ fontSize: 15, color: "var(--color-muted-foreground)", fontStyle: "italic", marginTop: 4 }}>
-                  {p.description}
+              <button
+                onClick={() => onOpen(p.slug)}
+                data-hover
+                style={{
+                  background: "none", border: "none", padding: 0, textAlign: "left",
+                  color: "inherit", font: "inherit", width: "100%",
+                  display: "grid", gridTemplateColumns: "100px 1fr", gap: 24, alignItems: "baseline",
+                }}
+                className="post-row"
+              >
+                <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+                  <span className="mono" style={{ fontSize: 11, color: "var(--color-muted-foreground)", letterSpacing: "0.04em" }}>
+                    {p.dateLabel.toUpperCase()}
+                  </span>
+                  <span className="mono" style={{ fontSize: 9.5, color: "var(--color-muted-foreground)", opacity: 0.8 }}>
+                    {readTime} MIN READ
+                  </span>
                 </div>
-              </span>
-            </button>
-          </li>
-        ))}
+                <span>
+                  <div style={{ fontSize: 22, letterSpacing: "-0.01em", fontWeight: 500 }}>{p.title}</div>
+                  <div style={{ fontSize: 15.5, color: "var(--color-muted-foreground)", fontStyle: "italic", marginTop: 4 }}>
+                    {p.description}
+                  </div>
+                </span>
+              </button>
+            </li>
+          );
+        })}
       </ul>
 
       {post && <PostModal post={post} onClose={onClose} />}
@@ -503,6 +515,9 @@ function PostModal({ post, onClose }: { post: BlogPost; onClose: () => void }) {
     };
   }, [onClose]);
 
+  const words = post.body.replace(/<[^>]*>/g, '').split(/\s+/).length;
+  const readTime = Math.ceil(words / 200);
+
   return (
     <div
       className="modal-fade"
@@ -522,10 +537,15 @@ function PostModal({ post, onClose }: { post: BlogPost; onClose: () => void }) {
             display: "inline-flex", alignItems: "center", gap: 8, marginBottom: 56,
           }}
         >
-          ← back
+          ← back to blog
         </button>
-        <div className="mono" style={{ fontSize: 11, color: "var(--color-muted-foreground)", letterSpacing: "0.06em" }}>
-          {post.dateLabel.toUpperCase()}
+        <div style={{ display: "flex", alignItems: "baseline", gap: 12 }} className="mono">
+          <span style={{ fontSize: 11, color: "var(--color-muted-foreground)", letterSpacing: "0.06em" }}>
+            {post.dateLabel.toUpperCase()}
+          </span>
+          <span style={{ fontSize: 9.5, color: "var(--color-muted-foreground)", opacity: 0.8 }}>
+            · {readTime} MIN READ
+          </span>
         </div>
         <h1 style={{ fontSize: 40, lineHeight: 1.15, letterSpacing: "-0.02em", fontWeight: 500, marginTop: 12 }}>
           {post.title}
@@ -794,7 +814,7 @@ function Index() {
 
   const go = (v: View, slug?: string) => {
     setView(v);
-    if (v === "writing" && slug) setOpenSlug(slug);
+    if (v === "blog" && slug) setOpenSlug(slug);
     else setOpenSlug(null);
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   };
@@ -872,8 +892,8 @@ function Index() {
           {view === "home" && <HomeView go={go} />}
           {view === "work" && <WorkView />}
           {view === "projects" && <ProjectsView />}
-          {view === "writing" && (
-            <WritingView
+          {view === "blog" && (
+            <BlogView
               openSlug={openSlug}
               onOpen={(s) => setOpenSlug(s)}
               onClose={() => setOpenSlug(null)}
