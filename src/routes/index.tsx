@@ -162,12 +162,12 @@ function Index() {
             </Link>
           </div>,
           <div key="posts" style={{ marginTop: 56 }}>
-            <SectionLabel>Recent blog posts</SectionLabel>
+            <SectionLabel>Recent writing</SectionLabel>
             <ul style={{ listStyle: "none", padding: 0, marginTop: 14 }}>
               {recent.map((p) => (
                 <li key={p.slug} style={{ padding: "10px 0" }}>
                   <Link
-                    to="/blog/$slug"
+                    to="/writing/$slug"
                     params={{ slug: p.slug }}
                     data-hover
                     style={{

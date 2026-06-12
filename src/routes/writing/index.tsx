@@ -1,17 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { POSTS } from "@/lib/posts";
 
-export const Route = createFileRoute("/blog/")({
+export const Route = createFileRoute("/writing/")({
   head: () => ({
     meta: [
-      { title: "Blog — Pavan Siddapuram" },
+      { title: "Writing — Pavan Siddapuram" },
       {
         name: "description",
         content: "Technical field reports, thoughts on systems architecture, and engineering reflections.",
       },
     ],
   }),
-  component: BlogView,
+  component: WritingView,
 });
 
 // ---------- Page header ----------
@@ -28,10 +28,10 @@ function PageHeader({ eyebrow, title }: { eyebrow: string; title: string }) {
   );
 }
 
-function BlogView() {
+function WritingView() {
   return (
     <div style={{ maxWidth: 760 }}>
-      <PageHeader eyebrow="04" title="Blog" />
+      <PageHeader eyebrow="04" title="Writing" />
       <p style={{ fontSize: 18, color: "var(--color-muted-foreground)", marginTop: -24, marginBottom: 40 }}>
         Technical field reports, thoughts on systems architecture, and engineering reflections.
       </p>
@@ -45,7 +45,7 @@ function BlogView() {
               style={{ borderTop: "1px solid var(--color-border)", padding: "24px 0" }}
             >
               <Link
-                to="/blog/$slug"
+                to="/writing/$slug"
                 params={{ slug: p.slug }}
                 data-hover
                 style={{

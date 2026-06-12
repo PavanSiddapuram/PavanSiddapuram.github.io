@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { POSTS } from "@/lib/posts";
 
-export const Route = createFileRoute("/blog/$slug")({
+export const Route = createFileRoute("/writing/$slug")({
   loader: ({ params }) => {
     const post = POSTS.find((p) => p.slug === params.slug);
     return { post };
@@ -10,7 +10,7 @@ export const Route = createFileRoute("/blog/$slug")({
     const title = loaderData?.post
       ? `${loaderData.post.title} — Pavan Siddapuram`
       : "Post Not Found — Pavan Siddapuram";
-    const description = loaderData?.post?.description ?? "Blog post details";
+    const description = loaderData?.post?.description ?? "Writing post details";
     return {
       meta: [
         { title },
@@ -32,7 +32,7 @@ function BlogPostView() {
           The article you are looking for does not exist or has been moved.
         </p>
         <Link
-          to="/blog"
+          to="/writing"
           data-hover
           className="mono"
           style={{
@@ -43,7 +43,7 @@ function BlogPostView() {
             marginTop: 24,
           }}
         >
-          ← back to blog
+          ← back to writing
         </Link>
       </div>
     );
@@ -55,7 +55,7 @@ function BlogPostView() {
   return (
     <div style={{ maxWidth: 640, margin: "0 auto", padding: "0 8px 120px" }}>
       <Link
-        to="/blog"
+        to="/writing"
         data-hover
         className="mono"
         style={{
@@ -72,7 +72,7 @@ function BlogPostView() {
           textDecoration: "none",
         }}
       >
-        ← back to blog
+        ← back to writing
       </Link>
       <div style={{ display: "flex", alignItems: "baseline", gap: 12 }} className="mono">
         <span style={{ fontSize: 11, color: "var(--color-muted-foreground)", letterSpacing: "0.06em" }}>
