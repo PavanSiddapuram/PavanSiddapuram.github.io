@@ -10,36 +10,38 @@ export type BlogPost = {
 export const POSTS: BlogPost[] = [
   {
     slug: "ghosts-animals-bitter-lesson",
-    title: "Ghosts, animals, and the Bitter Lesson",
+    title: "Ghosts, Animals, and the Bitter Lesson",
     date: "2026-06-22",
     dateLabel: "Jun 2026",
     description: "On biological priors, disembodied intelligence, and the coming abundance of reasoning.",
     body: `
-<p>A biological brain does not start from scratch. A newborn wildebeest can stand and run within minutes of birth because evolution has pre-configured its neural wiring directly into its DNA. It comes pre-loaded with millions of years of physical checkpoints.</p>
-<p>A Large Language Model, by contrast, starts as a completely blank slate. Its weights are initialized to random floating-point numbers. It has no instincts, no sensors, no physical embodiment, and no evolutionary survival pressure. Yet, at scale, reasoning emerges.</p>
-<p>Andrej Karpathy describes this process not as building animals, but as <em>summoning ghosts</em>. We are compressing the digital traces of human civilization into a mathematical latent space, and in doing so, we have built a fundamentally new kind of intelligence.</p>
-<h2>The Bitter Lesson vs. civilization compression</h2>
-<p>Richard Sutton’s famous essay, <em>The Bitter Lesson</em>, argues that the history of AI proves that general methods leveraging compute—specifically search and learning—always defeat human-engineered heuristics. Sutton’s critique of LLMs is rooted in this: he believes next-token prediction is an evolutionary dead end because the model is only learning from static human traces, not from direct experience with reality.</p>
+<p>A biological brain does not start from scratch. A newborn wildebeest can stand and run within minutes of birth because evolution has pre-configured its neural wiring directly into its DNA—pre-loading it with millions of years of physical checkpoints. The wildebeest is born with a hardcoded world model; it knows that ground is solid, that falling hurts, and that predators are dangerous. Its survival is a function of deep, evolutionary memory.</p>
+<p>A Large Language Model, by contrast, starts as a completely blank slate. Its weights are initialized to random floating-point numbers—no instincts, no sensors, no physical embodiment, and no evolutionary survival pressure. It does not touch the ground, nor does it breathe. Yet, at scale, reasoning emerges.</p>
+<p>Andrej Karpathy describes this process not as building animals, but as <em>summoning ghosts</em>. We are compressing the digital traces of human civilization into a mathematical latent space—and in doing so, we have built a fundamentally new kind of intelligence: disembodied, non-biological, yet eerily fluent.</p>
+<h2>The Bitter Lesson vs. Civilizational Compression</h2>
+<p>Richard Sutton’s famous essay, <em>The Bitter Lesson</em>, argues that the history of AI proves that general methods leveraging compute—specifically search and learning—always defeat human-engineered heuristics. His critique of LLMs follows directly from this: next-token prediction is an evolutionary dead end because the model only learns from static human traces, not from direct experience with reality.</p>
 <blockquote>An LLM learns gravity by predicting the word "gravity" next to "falling." An animal learns gravity by falling down.</blockquote>
-<p>This is a compelling critique. But it overlooks how human intelligence actually scales. Humans do not rediscover calculus or electromagnetism from first principles through trial and error. We download the compressed intelligence of prior generations through language, culture, and education. We pre-train our minds on a civilizational prior.</p>
-<p>LLM pre-training is the ultimate civilisational download. It isn't just text prediction; it is a statistical compression of our collective world model. Once you have compressed the generator of the text, you inherit its capabilities.</p>
-<h2>The new architecture</h2>
+<p>That is a compelling critique—but it overlooks how human intelligence actually scales.</p>
+<p>Humans do not rediscover calculus or electromagnetism from first principles through trial and error. We do not learn gravity solely by falling, nor do we invent language from scratch. We download the compressed intelligence of prior generations through language, culture, and education. We pre-train our minds on a civilizational prior.</p>
+<p>LLM pre-training is the ultimate civilizational download. It is not just text prediction—it is a statistical compression of our collective world model. Once you compress the generator of the text, you inherit its capabilities. The model doesn't need to touch a hot stove to know it burns; it has compressed the collective warnings of everyone who ever did.</p>
+<h2>The New Architecture</h2>
 <p>The next frontier is not about choosing between Sutton’s active learning and Karpathy’s passive compression. The industry is quietly converging on a hybrid architecture:</p>
 <ul>
-  <li><strong>Pre-training (The Ghost)</strong>: Establishing the raw latent representation of human knowledge.</li>
-  <li><strong>World Models (The Physics Engine)</strong>: Building latent predictive architectures (like Yann LeCun's JEPA) that learn the physical rules of reality without generating every pixel.</li>
-  <li><strong>Reinforcement Learning (The Agent)</strong>: Introducing search and value functions during inference, allowing the disembodied model to navigate complex tasks through trial, error, and feedback.</li>
+  <li><strong>Pre-training (The Ghost)</strong> — Establishing the raw latent representation of human knowledge.</li>
+  <li><strong>World Models (The Physics Engine)</strong> — Building latent predictive architectures (like Yann LeCun's JEPA) that learn the physical rules of reality without generating every pixel.</li>
+  <li><strong>Reinforcement Learning (The Agent)</strong> — Introducing search and value functions during inference, allowing the disembodied model to navigate complex tasks through trial, error, and feedback.</li>
 </ul>
-<p>This triad mimics the human combination of culture (pre-training), intuition (world models), and active execution (RL).</p>
-<h2>When reasoning is cheap</h2>
-<p>We are transitioning into an era where the marginal cost of cognition is approaching zero. If anyone can generate expert-level code, write legal briefs, or compile research reports for fractions of a cent, cognitive labor ceases to be a moat.</p>
-<p>When capability becomes abundant, value consolidates in the only three scarcities left:</p>
+<p>This triad mimics the human combination of culture (pre-training), intuition (world models), and active execution (RL). Nobody is winning the debate because the winning answer is all three working together.</p>
+<h2>When Reasoning Is Cheap</h2>
+<p>We are entering an era where the marginal cost of cognition is approaching zero. If anyone can generate expert-level code, write legal briefs, or compile research reports for fractions of a cent, cognitive labor ceases to be a moat.</p>
+<p>When capability becomes abundant, value consolidates around the scarcities that remain:</p>
 <ol>
-  <li><strong>Taste and Judgement</strong>: In a world of infinite permutations, knowing <em>what</em> to build becomes far more valuable than knowing <em>how</em> to write the code. Curation is the new production.</li>
-  <li><strong>Trust and Relationships</strong>: AI cannot own fiduciary responsibility or authentic empathy. Verifiable human reputation is the ultimate filter when synthetic noise is infinite.</li>
-  <li><strong>Physical atoms</strong>: Software is infinitely scalable; energy, compute infrastructure, and physical execution are not. The physical world remains constrained by entropy and friction.</li>
+  <li><strong>Taste and Judgement</strong> — In a world of infinite permutations, knowing <em>what</em> to build becomes far more valuable than knowing <em>how</em> to write the code. Curation is the new production.</li>
+  <li><strong>Trust and Relationships</strong> — AI cannot own fiduciary responsibility or authentic empathy. Verifiable human reputation becomes the ultimate filter when synthetic noise is infinite.</li>
+  <li><strong>Physical Atoms</strong> — Software is infinitely scalable; energy, compute infrastructure, and physical execution are not. The physical world remains constrained by entropy and friction.</li>
 </ol>
-<p>The successful builders of this era will not be cognitive laborers writing code. They will be system orchestrators, leveraging swarms of agents to multiply their own taste and judgment across the physical and digital landscape.</p>
+<p>The builders who compound in this era will not be cognitive laborers writing code. They will be system orchestrators, leveraging swarms of agents to multiply their own taste and judgment across the physical and digital landscape.</p>
+<p>The question is no longer whether you can solve the problem—it is whether you chose the right problem to begin with.</p>
 `,
   },
   {

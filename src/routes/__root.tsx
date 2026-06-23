@@ -86,7 +86,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "Software engineer in Bengaluru working on 3D CAD platforms, WebAssembly, and AI systems.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { property: "og:image", content: "https://pavansiddapuram.github.io/og-image.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://pavansiddapuram.github.io/og-image.png" },
     ],
     links: [
       {
