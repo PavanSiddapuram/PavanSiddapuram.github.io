@@ -37,6 +37,20 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
+    title: "Snap3D",
+    year: "2026",
+    body: "AI-powered 3D model generation platform for makers, Etsy sellers, and developers. Generates watertight, printable STLs and textured GLBs from text or photos in under 60 seconds. Features a zero-idle pay-per-second GPU inference pipeline (Modal.com with TRELLIS.2), a serverless job queue (Upstash Redis Streams), Cloudflare R2 storage, a credit-based Razorpay subscription system, and 6 free parametric OpenSCAD calculators for organic traffic.",
+    stack: "Next.js 14 · React Three Fiber · FastAPI · Modal.com GPU · Supabase · Redis · Cloudflare R2",
+    github: "https://github.com/PavanSiddapuram/snap3d-studio",
+  },
+  {
+    title: "ToolTrace",
+    year: "2026",
+    body: "Browser-based CAD and computer vision SaaS that converts photographs of hand tools into 3D-printable or laser-cuttable custom organizer drawer inserts. Implements a multi-pass OpenCV.js edge and paper detection pipeline offloaded to Web Workers, Three.js/React Three Fiber 3D interactive viewer, and high-performance three-bvh-csg boolean operations to generate clean tool cutouts. Supports high-quality STL and SVG vector exports.",
+    stack: "React 18 · TypeScript · Vite · Tailwind CSS · Three.js · React Three Fiber · OpenCV.js · three-bvh-csg",
+    github: "https://github.com/PavanSiddapuram/ToolTrace",
+  },
+  {
     title: "HonestRAG",
     year: "2026",
     body: "A retrieval-first RAG system that refuses to answer rather than hallucinate. Cosine-similarity threshold gating happens before any generation call, and the model never sees a prompt it cannot back up. Evaluated against a small set of golden test cases — calibrated to err on the side of silence.",
@@ -76,9 +90,22 @@ function ProjectsView() {
             }}
           >
             <header style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 16 }}>
-              <h3 style={{ margin: 0, fontSize: 28, letterSpacing: "-0.015em", fontWeight: 500 }}>
-                {p.title}
-              </h3>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
+                <h3 style={{ margin: 0, fontSize: 28, letterSpacing: "-0.015em", fontWeight: 500 }}>
+                  {p.title}
+                </h3>
+                {p.github && (
+                  <a
+                    href={p.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    data-hover
+                    style={{ fontSize: 14, color: "var(--color-muted-foreground)", textDecoration: "none" }}
+                  >
+                    repo ↗
+                  </a>
+                )}
+              </div>
               <span className="mono" style={{ fontSize: 12, color: "var(--color-muted-foreground)" }}>
                 {p.year}
               </span>

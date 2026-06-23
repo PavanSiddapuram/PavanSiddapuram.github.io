@@ -53,6 +53,8 @@ const STACK_GROUPS: { title: string; items: { id: string; name: string; level: "
       { id: "threedotjs", name: "Three.js", level: "prod" },
       { id: "glsl", name: "GLSL", level: "prod" },
       { id: "webassembly", name: "WebAssembly", level: "prod" },
+      { id: "opencv", name: "OpenCV.js", level: "prod" },
+      { id: "three-bvh-csg", name: "three-bvh-csg", level: "prod" },
     ],
   },
   {
@@ -60,14 +62,17 @@ const STACK_GROUPS: { title: string; items: { id: string; name: string; level: "
     items: [
       { id: "react", name: "React", level: "prod" },
       { id: "typescript", name: "TypeScript", level: "prod" },
+      { id: "nextdotjs", name: "Next.js", level: "prod" },
+      { id: "tailwindcss", name: "Tailwind CSS", level: "prod" },
     ],
   },
   {
-    title: "Backend",
+    title: "Backend & Serverless",
     items: [
       { id: "fastapi", name: "FastAPI", level: "prod" },
       { id: "fastify", name: "Fastify", level: "prod" },
       { id: "python", name: "Python", level: "prod" },
+      { id: "modal", name: "Modal.com", level: "prod" },
     ],
   },
   {
@@ -83,6 +88,7 @@ const STACK_GROUPS: { title: string; items: { id: string; name: string; level: "
       { id: "docker", name: "Docker", level: "prod" },
       { id: "amazonaws", name: "AWS", level: "prod" },
       { id: "googlecloud", name: "Google Cloud", level: "prod" },
+      { id: "cloudflare", name: "Cloudflare R2", level: "prod" },
     ],
   },
   {
