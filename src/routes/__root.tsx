@@ -131,6 +131,10 @@ function LayoutShell({ children }: { children: React.ReactNode }) {
         {/* Nav */}
         <header
           style={{
+            position: "sticky",
+            top: 0,
+            zIndex: 50,
+            background: "var(--color-background)",
             padding: "28px clamp(20px, 5vw, 56px)",
             display: "flex",
             alignItems: "center",
